@@ -1,4 +1,5 @@
 import "./style.scss";
+import "./spinner.scss";
 import $ from "jquery";
 
 //открыть модалку
@@ -24,32 +25,41 @@ const phone = document.getElementById("formPhone");
 
 form.on("submit", sendForm);
 
-async function sendForm(event) {
+function sendForm(event) {
   event.preventDefault();
 
-  const isValid = !formValidate();
+  const invalidCount = formValidate();
   const API_URL = "https://jsonplaceholder.typicode.com/todos";
 
-  if (isValid) {
-    $.ajax({
-      url: API_URL,
-      type: "GET",
-      success: function (data) {
-        const tableData = data.filter(
-          (todo) => todo.userId === 5 && todo.completed === false
-        );
-        $("#form").remove();
-        $(".modal__content").append(createTable(tableData));
-      },
-      error: function () {
-        $("#form").remove();
-
-        $(".modal__content").append(
-          "<span class='error'>Произошла ошибка при запросе, обновите страницу и попробуйте еще раз.</span>"
-        );
-      },
-    });
-  }
+  //если не прошли валидацию, не делаем запрос
+  if (invalidCount !== 0) return;
+  $.ajax({
+    url: API_URL,
+    type: "GET",
+    beforeSend: function () {
+      $("#form").remove();
+      // перед отправкой включаем спиннер
+      $(".spinner").removeClass("spinner_hidden");
+    },
+    success: function (data) {
+      //фильтрируем полученные данные
+      const tableData = data.filter(
+        (todo) => todo.userId === 5 && todo.completed === false
+      );
+      //заменяем контент модалки таблицей
+      $(".modal__content").append(createTable(tableData));
+    },
+    complete: function () {
+      // после запроса убрать спиннер
+      $(".spinner").addClass("spinner_hidden");
+    },
+    error: function () {
+      //заменяем контент модалки на сообщение об ошибке
+      $(".modal__content").append(
+        "<span class='error'>Произошла ошибка при запросе, обновите страницу и попробуйте еще раз.</span>"
+      );
+    },
+  });
 }
 
 function formValidate() {
@@ -78,7 +88,6 @@ function formValidate() {
 
   return isValid;
 }
-
 
 //собираем саму таблицу
 function createTable(todos) {
