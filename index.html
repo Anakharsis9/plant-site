@@ -9,8 +9,183 @@
   </head>
   <body>
     <header class="header">
-      <div class="header__content _container"></div>
+      <div class="header__content _container">
+        <img src="./assets/Logo.svg" alt="Logo" />
+        <button class="header__btn btn btn_active">Форма</button>
+      </div>
     </header>
-    <section class=""></section>
+    <main class="page">
+      <section class="cover">
+        <div class="cover__container">
+          <div class="cover__image">
+            <picture>
+              <source
+                srcset="./assets/img-big-1280.jpg"
+                media="(min-width: 1280px)"
+              />
+              <img src="./assets/img-big-1280.jpg" alt="" />
+            </picture>
+          </div>
+
+          <div class="cover__content">
+            <h1 class="cover__title title">Kembang Flower Mantap</h1>
+            <div class="cover__text text">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s,
+            </div>
+            <div class="cover_btns">
+              <button class="cover_btn btn btn_big btn_big_back btn_secondary">
+                <div class="btn__direction btn__direction_back">
+                  <img
+                    class="btn__icon"
+                    src="./assets/arrow-back.svg"
+                    alt="arrow-back"
+                  />
+                  Previous
+                </div>
+                Kaktus Plant
+              </button>
+              <button class="cover_btn btn btn_big btn_big_next btn_active">
+                <div class="btn__direction btn__direction_next">
+                  Next
+                  <img
+                    class="btn__icon"
+                    src="./assets/arrow-next.svg"
+                    alt="arrow-next"
+                  />
+                </div>
+                Rahasia Plant
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="advantages-cards _container">
+        <div class="advantages-cards__container">
+          <div class="advantages-cards__column">
+            <div class="advantages-card">
+              <div class="advantages-card__title">
+                <img src="./assets/fast 1.svg" alt="fast" />
+                Fast <br />
+                Delivery
+              </div>
+              <div class="advantages-card__text text">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard
+              </div>
+            </div>
+          </div>
+          <div class="advantages-cards__column">
+            <div class="advantages-card">
+              <div class="advantages-card__title">
+                <img src="./assets/headphones 1.svg" alt="fast" />
+                Great Customer <br />
+                Service
+              </div>
+              <div class="advantages-card__text text">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard
+              </div>
+            </div>
+          </div>
+          <div class="advantages-cards__column">
+            <div class="advantages-card">
+              <div class="advantages-card__title">
+                <img src="./assets/plant 1.svg" alt="fast" />
+                Original<br />
+                Plants
+              </div>
+              <div class="advantages-card__text text">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard
+              </div>
+            </div>
+          </div>
+          <div class="advantages-cards__column">
+            <div class="advantages-card">
+              <div class="advantages-card__title">
+                <img src="./assets/dollar-symbol 1.svg" alt="fast" />
+                Affordable <br />
+                Price
+              </div>
+              <div class="advantages-card__text text">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="featured-plants">
+        <div class="featured-plants__container _container">
+          <div class="featured-plants__header">
+            <h2 class="featured-plants__title">Featured Plants</h2>
+            <select name="filter" id="filter" class="featured-plants__select">
+              <option value="Cheaper First">Cheaper First</option>
+            </select>
+          </div>
+          <hr />
+          <div class="featured-plants__cards">
+            <div class="featured-plants__column">
+              <div class="featured-plant">
+                <div class="featured-plant__image">
+                  <img src="./assets/img-1.png" alt="img1" />
+                </div>
+                <div class="featured-plant__description">
+                  <span class="featured-plant__title">Kaktus Plants</span>
+                  <span class="featured-plant__price">IDR 85.000</span>
+                </div>
+              </div>
+            </div>
+            <div class="featured-plants__column">
+              <div class="featured-plant">
+                <div class="featured-plant__image">
+                  <img src="./assets/img-2.png" alt="img1" />
+                </div>
+                <div class="featured-plant__description">
+                  <span class="featured-plant__title">Landak Plants</span>
+                  <span class="featured-plant__price">IDR 105.000</span>
+                </div>
+              </div>
+            </div>
+            <div class="featured-plants__column">
+              <div class="featured-plant">
+                <div class="featured-plant__image">
+                  <img src="./assets/img-3.png" alt="img1" />
+                </div>
+                <div class="featured-plant__description">
+                  <span class="featured-plant__title">Kecubung Plants</span>
+                  <span class="featured-plant__price">IDR 85.000</span>
+                </div>
+              </div>
+            </div>
+            <div class="featured-plants__column">
+              <div class="featured-plant">
+                <div class="featured-plant__image">
+                  <img src="./assets/img-4.png" alt="img1" />
+                </div>
+                <div class="featured-plant__description">
+                  <span class="featured-plant__title">Kecubung Plants</span>
+                  <span class="featured-plant__price">IDR 85.000</span>
+                </div>
+              </div>
+            </div>
+            <div class="featured-plants__column">
+              <div class="featured-plant">
+                <div class="featured-plant__image">
+                  <img src="./assets/img-5.png" alt="img1" />
+                </div>
+                <div class="featured-plant__description">
+                  <span class="featured-plant__title">Kecubung Plants</span>
+                  <span class="featured-plant__price">IDR 85.000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    
   </body>
 </html>

@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700&display=swap&subset=cyrillic-ext");
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:regular&display=swap&subset=cyrillic-ext");
+
+$main-font-family: "Montserrat";
+$secondary-font-family: "PT+Sans";
+
+$accent-color: #156963;
+$secondary-color: #e0e0e0;
+$text-color: #2c1500;
+
+$minWidth: 320;
+$maxWidth: 1280;
+$maxWidthContainer: 1170;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $main-font-family;
+}
+
+.text {
+  color: $text-color;
+}
+
+._container {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  @media (max-width: ($md1+px)) {
+    max-width: 970px;
+  }
+  @media (max-width: ($md2+px)) {
+    max-width: 750px;
+  }
+}
+
+.header {
+  width: 100%;
+  position: absolute;
+  &__content {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__btn {
+    height: 36px;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  flex-direction: column;
+  border: none;
+  padding: 0px 20px;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: white;
+  transition: background-color 0.3s ease 0s;
+  font-weight: 500;
+
+  &_active {
+    background-color: $accent-color;
+    color: white;
+
+    &:hover {
+      background-color: #0f4e4a;
+    }
+  }
+  &_big {
+    font-size: 32px;
+    height: 160px;
+
+    &_back {
+      color: $accent-color;
+      width: 270px;
+    }
+
+    &_next {
+      width: 320px;
+    }
+  }
+  &__direction {
+    margin-bottom: 12px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_back {
+      color: #ccc;
+      img {
+        margin-right: 10px;
+      }
+    }
+    &_next {
+      color: #f2f2f2;
+      img {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.cover {
+  // overflow-x: hidden;
+  &__container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+  }
+  &__content {
+    margin-top: 15%;
+
+    margin-left: 77px;
+    width: 540px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__image {
+    width: 50%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__title {
+    color: $accent-color;
+    font-size: 68px;
+    font-weight: 500;
+  }
+  &__text {
+    margin-top: 24px;
+    font-size: 18px;
+    line-height: 32/18 * 100%;
+  }
+  &_btns {
+    margin-top: 15%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.advantages-cards {
+  margin-top: 140px;
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: ($md1+px)) {
+      flex-wrap: wrap;
+    }
+
+    margin: 0px -16px;
+  }
+  &__column {
+    flex: 0 1 25%;
+    @media (max-width: ($md1+px)) {
+      flex: 0 1 45%;
+    }
+
+    margin: 0px 16px;
+  }
+}
+
+.advantages-card {
+  border: 2px solid $secondary-color;
+  height: 100%;
+  padding: 22px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    color: $accent-color;
+    font-size: 16px;
+    font-weight: 700;
+
+    img {
+      margin-right: 16px;
+    }
+  }
+  &__text {
+    margin-top: 16px;
+    font-size: 10px;
+    line-height: 16/10 * 100%;
+  }
+}
+
+.featured-plants {
+  margin-top: 80px;
+  margin-bottom: 300px;
+  hr {
+    border: 1px solid $secondary-color;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__header {
+    display: flex;
+    margin-bottom: 16px;
+    justify-content: space-between;
+  }
+  &__title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24/20 * 100%;
+  }
+  &__select {
+    font-weight: 500;
+    width: 130px;
+    padding: 8px 12px;
+    border: 2px solid $secondary-color;
+    appearance: none;
+    background: url("./assets/chevron-down.svg") no-repeat;
+    background-position: 95% center;
+
+    outline: 0;
+  }
+  &__cards {
+    margin: 0px -10px;
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__column {
+    flex: 0 1 20%;
+    padding: 0 10px;
+  }
+}
+
+.featured-plant {
+  width: 100%;
+  height: 100%;
+  &__image {
+    width: 217px;
+    height: 217px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  &__description {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__title {
+  }
+
+  &__price {
+    margin-top: 8px;
+    font-weight: 600;
+  }
+}
