@@ -149,7 +149,7 @@ $md3: 767.98;
   &__text {
     margin-top: 24px;
     font-size: 18px;
-    line-height: 32/18 * 100%;
+    line-height: calc(32 / 18) * 100%;
   }
   &_btns {
     margin-top: 15%;
@@ -204,7 +204,7 @@ $md3: 767.98;
   &__text {
     margin-top: 16px;
     font-size: 10px;
-    line-height: 16/10 * 100%;
+    line-height: calc(16 / 10) * 100%;
   }
 }
 
@@ -226,7 +226,7 @@ $md3: 767.98;
   &__title {
     font-weight: 500;
     font-size: 20px;
-    line-height: 24/20 * 100%;
+    line-height: calc(24 / 20) * 100%;
   }
   &__select {
     font-weight: 500;
@@ -359,7 +359,7 @@ $md3: 767.98;
   }
 
   &__form {
-    width: 430px; 
+    width: 430px;
     display: flex;
     flex-direction: column;
     justify-content: center;
