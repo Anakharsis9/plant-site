@@ -20,6 +20,7 @@ $md3: 767.98;
   border-radius: 15px;
   outline: none;
   border: 1px solid $secondary-color;
+  transition: all 0.3s ease-in-out 0s;
 }
 
 * {
@@ -27,6 +28,10 @@ $md3: 767.98;
   padding: 0;
   box-sizing: border-box;
   font-family: $main-font-family;
+}
+
+.body_overlowHidden {
+  overflow: hidden;
 }
 
 .text {
@@ -284,6 +289,26 @@ $md3: 767.98;
   background-color: rgb(0, 0, 0, 0.8);
   top: 0;
   left: 0;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all 0.5s ease 0s;
+  &_active {
+    opacity: 1;
+    visibility: visible;
+  }
+  &__area {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
   &__body {
     min-height: 100%;
     display: flex;
@@ -292,31 +317,53 @@ $md3: 767.98;
     padding: 30px 10px;
   }
   &__content {
-    max-width: 500px;
+    position: relative;
+    width: 500px;
+    max-width: 700px;
+    min-width: 500px;
+    min-height: 200px;
     background-color: white;
     color: #000;
     padding: 40px;
     border-radius: 10px;
+    opacity: 0;
+    transition: all 0.5s ease 0s;
+    transform: translate(0px, -100%);
+    &_active {
+      opacity: 1;
+      transform: translate(0px, 0px);
+    }
   }
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    &:active {
+      outline: none;
+    }
+  }
+  &__table {
+    width: 100%;
+    border: 1px solid $secondary-color;
+
+    th,
+    td {
+      padding: 5px 10px;
+      text-align: start;
+    }
+  }
+
   &__form {
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    &__close {
-      position: absolute;
-      top: -20px;
-      right: -20px;
-      width: 30px;
-      height: 30px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      &:active {
-        outline: none;
-      }
-    }
+
     &__icon {
       width: 90px;
       height: 90px;
@@ -345,7 +392,7 @@ $md3: 767.98;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
     }
 
     &__input {
@@ -355,6 +402,11 @@ $md3: 767.98;
       @include control-item();
       font-size: 16px;
       margin-top: 16px;
+
+      &:focus {
+        outline: none;
+        border: 1px solid $accent-color;
+      }
     }
     &__btns {
       margin-top: 16px;
@@ -379,4 +431,23 @@ $md3: 767.98;
       }
     }
   }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.invalid {
+  border: 1px solid red;
+}
+.error {
+  margin-top: 10px;
+  color: red;
+  font-size: 14px;
+}
+
+.error-message__wraper {
+  position: relative;
 }
