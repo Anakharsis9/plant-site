@@ -318,9 +318,7 @@ $md3: 767.98;
   }
   &__content {
     position: relative;
-    width: 500px;
-    max-width: 700px;
-    min-width: 500px;
+    min-width: 460px;
     min-height: 200px;
     background-color: white;
     color: #000;
@@ -348,17 +346,20 @@ $md3: 767.98;
     }
   }
   &__table {
-    width: 100%;
+    width: 700px;
+    padding: 10px;
     border: 1px solid $secondary-color;
 
     th,
     td {
+      height: 50px;
       padding: 5px 10px;
       text-align: start;
     }
   }
 
   &__form {
+    width: 430px; 
     display: flex;
     flex-direction: column;
     justify-content: center;

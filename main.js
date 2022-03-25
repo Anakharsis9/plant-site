@@ -35,12 +35,11 @@ async function sendForm(event) {
       url: API_URL,
       type: "GET",
       success: function (data) {
-        const userTableData = data.filter(
-          (user) => user.userId === 5 && user.completed === false
+        const tableData = data.filter(
+          (todo) => todo.userId === 5 && todo.completed === false
         );
-        for (const user of userTableData) {
-          console.log(user);
-        }
+        $("#form").remove();
+        $(".modal__content").append(createTable(tableData));
       },
       error: function () {
         $("#form").remove();
@@ -80,22 +79,36 @@ function formValidate() {
   return isValid;
 }
 
-function createTable(data) {
+
+//собираем саму таблицу
+function createTable(todos) {
   const table = document.createElement("table");
   table.className = "modal__table";
-
-  for (user of data) {
-    let tr = document.createElement("tr");
-    let index = document.createElement("td");
-    let value = document.createElement("td");
-
-    index.innerHTML = "Input #" + (i + 1);
-    tr.appendChild(index);
-
-    value.innerHTML = inputs[i].value;
-    tr.appendChild(value);
-    table.appendChild(tr);
+  table.appendChild(createTableHeaders(todos[0]));
+  for (const todo of todos) {
+    table.appendChild(createTableCells(todo));
   }
+  return table;
 }
-
-// console.log(formValidate());
+//создаем th для таблицы
+function createTableHeaders(todo) {
+  const headers = Object.keys(todo);
+  const tr = document.createElement("tr");
+  for (const header of headers) {
+    const th = document.createElement("th");
+    th.innerText = header;
+    tr.appendChild(th);
+  }
+  return tr;
+}
+//создаем td для таблицы
+function createTableCells(todo) {
+  const headers = Object.keys(todo);
+  const tr = document.createElement("tr");
+  for (const header of headers) {
+    const td = document.createElement("td");
+    td.innerText = todo[header];
+    tr.appendChild(td);
+  }
+  return tr;
+}
