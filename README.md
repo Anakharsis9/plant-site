@@ -1,6 +1,6 @@
 # plant-site
 
-(Github pages link)[anakharsis9.github.io/plant-site/]
+(Github pages link)[https://anakharsis9.github.io/plant-site/]
 
 ## Project setup
 
