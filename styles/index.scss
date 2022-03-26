@@ -1,6 +1,9 @@
 @use "styles/variables";
-@use "styles/modal";
+@use "styles/header";
+@use "styles/cover";
 @use "styles/featured-plants";
+@use "styles/advantages-cards";
+@use "styles/modal";
 @use "styles/spinner";
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700&display=swap&subset=cyrillic-ext");
@@ -24,10 +27,17 @@
 ._container {
   max-width: variables.$maxWidthContainer + px;
   margin: 0 auto;
+
+  @media (max-width: (variables.$desktopFullHD)) {
+    max-width: 1600px;
+  }
+  @media (max-width: (variables.$desktopMedium)) {
+    max-width: 1170px;
+  }
   @media (max-width: (variables.$md1+px)) {
     max-width: 970px;
   }
-  @media (max-width: (variables.$md2+px)) {
+  @media (max-width: (variables.$md2)) {
     max-width: 750px;
   }
 }
@@ -36,29 +46,20 @@
   flex-grow: 1;
 }
 
-.header {
-  width: 100%;
-  position: absolute;
-  padding-top: 40px;
-
-  &__content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
 .btn {
-  display: inline-flex;
-  flex-direction: column;
+  font-size: 0.9rem;
   border: none;
-  padding: 0.5em 1em;
-  align-items: flex-start;
-  justify-content: center;
+  padding: 0.8em 2em;
+
   background-color: white;
   transition: background-color 0.3s ease 0s;
   font-weight: 500;
   cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
   &_active {
     background-color: variables.$accent-color;
     color: white;
@@ -68,21 +69,26 @@
     }
   }
   &_big {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 20px;
     font-size: 32px;
     height: 160px;
 
     &_back {
       color: variables.$accent-color;
-      width: 270px;
+      flex-grow: 1;
     }
 
     &_next {
-      width: 320px;
+      flex-grow: 3;
     }
   }
   &__direction {
     margin-bottom: 12px;
-    font-size: 24px;
+    font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,109 +108,6 @@
   }
 }
 
-.cover {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-
-  &__image {
-    flex-grow: 1;
-    height: 100%;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  &__content-container {
-    flex-grow: 1;
-    display: grid;
-    place-items: center;
-  }
-  &__content {
-    width: 540px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  &__title {
-    color: variables.$accent-color;
-    font-size: 68px;
-    font-weight: 500;
-  }
-  &__text {
-    margin-top: 24px;
-    font-size: 18px;
-    line-height: calc(32 / 18) * 100%;
-  }
-  &_btns {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-    .cover_btn {
-      padding: 0 20px;
-    }
-  }
-}
-
-.advantages-cards {
-  margin-top: 140px;
-  &__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    @media (max-width: (variables.$md1+px)) {
-      flex-wrap: wrap;
-    }
-
-    margin: 0px -16px;
-  }
-  &__column {
-    flex: 0 1 25%;
-    @media (max-width: (variables.$md1+px)) {
-      flex: 0 1 45%;
-    }
-
-    margin: 0px 16px;
-  }
-}
-
-.advantages-card {
-  border: 2px solid variables.$secondary-color;
-  height: 100%;
-  padding: 22px 16px;
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-
-  &__title {
-    display: flex;
-    align-items: center;
-    color: variables.$accent-color;
-    font-size: 16px;
-    font-weight: 700;
-
-    img {
-      margin-right: 16px;
-    }
-  }
-  &__text {
-    margin-top: 16px;
-    font-size: 10px;
-    line-height: calc(16 / 10) * 100%;
-  }
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
 .invalid {
   border: 1px solid red;
 }
@@ -212,8 +115,4 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-top: 10px;
   color: red;
   font-size: 14px;
-}
-
-.error-message__wraper {
-  position: relative;
 }
