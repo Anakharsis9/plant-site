@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./assets/Logo.svg" />
+    <link rel="stylesheet" href="./styles/index.scss" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plant Site</title>
     <script type="module" src="/main.js" defer></script>
@@ -11,31 +12,27 @@
     <header class="header">
       <div class="header__content _container">
         <img src="./assets/Logo.svg" alt="Logo" />
-        <button class="header__btn btn btn_active">Форма</button>
+        <button class="btn btn_active header__btn">Форма</button>
       </div>
     </header>
     <main class="page">
       <section class="cover">
-        <div class="cover__container">
-          <div class="cover__image">
-            <picture>
-              <source
-                srcset="./assets/img-big-1280.jpg"
-                media="(min-width: 1280px)"
-              />
-              <img src="./assets/img-big-1280.jpg" alt="" />
-            </picture>
-          </div>
+        <div class="cover__image">
+          <img src="./assets/img-big-1280.jpg" alt="Plant-photo" />
+        </div>
 
+        <div class="cover__content-container">
           <div class="cover__content">
-            <h1 class="cover__title title">Kembang Flower Mantap</h1>
+            <div class="spacer"></div>
+            <h1 class="cover__title">Kembang Flower Mantap</h1>
             <div class="cover__text text">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s,
             </div>
+            <div class="spacer"></div>
             <div class="cover_btns">
-              <button class="cover_btn btn btn_big btn_big_back btn_secondary">
+              <button class="btn btn_big btn_big_back btn_secondary">
                 <div class="btn__direction btn__direction_back">
                   <img
                     class="btn__icon"
@@ -46,7 +43,7 @@
                 </div>
                 Kaktus Plant
               </button>
-              <button class="cover_btn btn btn_big btn_big_next btn_active">
+              <button class="btn btn_big btn_big_next btn_active">
                 <div class="btn__direction btn__direction_next">
                   Next
                   <img
@@ -61,58 +58,52 @@
           </div>
         </div>
       </section>
-      <div class="advantages-cards _container">
-        <div class="advantages-cards__container">
-          <div class="advantages-cards__column">
-            <div class="advantages-card">
-              <div class="advantages-card__title">
-                <img src="./assets/fast 1.svg" alt="fast" />
-                Fast <br />
-                Delivery
-              </div>
-              <div class="advantages-card__text text">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard
-              </div>
+      <div class="advantages-cards">
+        <div class="advantages-cards__container _container">
+          <div class="advantages-card">
+            <div class="advantages-card__title">
+              <img src="./assets/fast 1.svg" alt="fast" />
+              Fast <br />
+              Delivery
+            </div>
+            <div class="advantages-card__text text">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard
             </div>
           </div>
-          <div class="advantages-cards__column">
-            <div class="advantages-card">
-              <div class="advantages-card__title">
-                <img src="./assets/headphones 1.svg" alt="fast" />
-                Great Customer <br />
-                Service
-              </div>
-              <div class="advantages-card__text text">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard
-              </div>
+          <div class="advantages-card">
+            <div class="advantages-card__title">
+              <img src="./assets/headphones 1.svg" alt="fast" />
+              Great Customer <br />
+              Service
+            </div>
+            <div class="advantages-card__text text">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard
             </div>
           </div>
-          <div class="advantages-cards__column">
-            <div class="advantages-card">
-              <div class="advantages-card__title">
-                <img src="./assets/plant 1.svg" alt="fast" />
-                Original<br />
-                Plants
-              </div>
-              <div class="advantages-card__text text">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard
-              </div>
+
+          <div class="advantages-card">
+            <div class="advantages-card__title">
+              <img src="./assets/plant 1.svg" alt="fast" />
+              Original<br />
+              Plants
+            </div>
+            <div class="advantages-card__text text">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard
             </div>
           </div>
-          <div class="advantages-cards__column">
-            <div class="advantages-card">
-              <div class="advantages-card__title">
-                <img src="./assets/dollar-symbol 1.svg" alt="fast" />
-                Affordable <br />
-                Price
-              </div>
-              <div class="advantages-card__text text">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard
-              </div>
+
+          <div class="advantages-card">
+            <div class="advantages-card__title">
+              <img src="./assets/dollar-symbol 1.svg" alt="fast" />
+              Affordable <br />
+              Price
+            </div>
+            <div class="advantages-card__text text">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard
             </div>
           </div>
         </div>
@@ -121,78 +112,83 @@
         <div class="featured-plants__container _container">
           <div class="featured-plants__header">
             <h2 class="featured-plants__title">Featured Plants</h2>
-            <select name="filter" id="filter" class="featured-plants__select">
+            <select class="featured-plants__select">
               <option value="Cheaper First">Cheaper First</option>
             </select>
           </div>
           <hr />
           <div class="featured-plants__cards">
-            <div class="featured-plants__column">
-              <div class="featured-plant">
-                <div class="featured-plant__image">
-                  <img src="./assets/img-1.png" alt="img1" />
-                </div>
-                <div class="featured-plant__description">
-                  <span class="featured-plant__title">Kaktus Plants</span>
-                  <span class="featured-plant__price">IDR 85.000</span>
-                </div>
+            <div class="featured-plant">
+              <div class="featured-plant__image">
+                <img src="./assets/img-1.png" alt="img1" />
+              </div>
+              <div class="featured-plant__description">
+                <span class="featured-plant__title">Kaktus Plants</span>
+                <span class="featured-plant__price">IDR 85.000</span>
               </div>
             </div>
-            <div class="featured-plants__column">
-              <div class="featured-plant">
-                <div class="featured-plant__image">
-                  <img src="./assets/img-2.png" alt="img1" />
-                </div>
-                <div class="featured-plant__description">
-                  <span class="featured-plant__title">Landak Plants</span>
-                  <span class="featured-plant__price">IDR 105.000</span>
-                </div>
+
+            <div class="featured-plant">
+              <div class="featured-plant__image">
+                <img src="./assets/img-2.png" alt="img1" />
+              </div>
+              <div class="featured-plant__description">
+                <span class="featured-plant__title">Landak Plants</span>
+                <span class="featured-plant__price">IDR 105.000</span>
               </div>
             </div>
-            <div class="featured-plants__column">
-              <div class="featured-plant">
-                <div class="featured-plant__image">
-                  <img src="./assets/img-3.png" alt="img1" />
-                </div>
-                <div class="featured-plant__description">
-                  <span class="featured-plant__title">Kecubung Plants</span>
-                  <span class="featured-plant__price">IDR 85.000</span>
-                </div>
+
+            <div class="featured-plant">
+              <div class="featured-plant__image">
+                <img src="./assets/img-3.png" alt="img1" />
+              </div>
+              <div class="featured-plant__description">
+                <span class="featured-plant__title">Kecubung Plants</span>
+                <span class="featured-plant__price">IDR 85.000</span>
               </div>
             </div>
-            <div class="featured-plants__column">
-              <div class="featured-plant">
-                <div class="featured-plant__image">
-                  <img src="./assets/img-4.png" alt="img1" />
-                </div>
-                <div class="featured-plant__description">
-                  <span class="featured-plant__title">Kecubung Plants</span>
-                  <span class="featured-plant__price">IDR 85.000</span>
-                </div>
+
+            <div class="featured-plant">
+              <div class="featured-plant__image">
+                <img src="./assets/img-4.png" alt="img1" />
+              </div>
+              <div class="featured-plant__description">
+                <span class="featured-plant__title">Kecubung Plants</span>
+                <span class="featured-plant__price">IDR 85.000</span>
               </div>
             </div>
-            <div class="featured-plants__column">
-              <div class="featured-plant">
-                <div class="featured-plant__image">
-                  <img src="./assets/img-5.png" alt="img1" />
-                </div>
-                <div class="featured-plant__description">
-                  <span class="featured-plant__title">Kecubung Plants</span>
-                  <span class="featured-plant__price">IDR 85.000</span>
-                </div>
+
+            <div class="featured-plant">
+              <div class="featured-plant__image">
+                <img src="./assets/img-5.png" alt="img1" />
+              </div>
+              <div class="featured-plant__description">
+                <span class="featured-plant__title">Kecubung Plants</span>
+                <span class="featured-plant__price">IDR 85.000</span>
               </div>
             </div>
           </div>
         </div>
       </section>
     </main>
-    <div class="modal">
+    <div class="modal modal_hidden">
+      <div class="modal__area close"></div>
       <div class="modal__body">
         <div class="modal__content">
-          <form action="#" class="modal__form">
-            <button class="modal__form__close">
-              <img src="./assets/close.svg" alt="close" />
-            </button>
+          <svg class="spinner spinner_hidden" viewbox="0 0 50 50">
+            <circle
+              class="path"
+              cx="25"
+              cy="25"
+              r="20"
+              fill="none"
+              stroke-width="5"
+            ></circle>
+          </svg>
+          <button class="modal__close close">
+            <img src="./assets/close.svg" alt="close" />
+          </button>
+          <form action="#" id="form" class="modal__form">
             <div class="modal__form__icon">
               <img src="./assets/map-pin.svg" alt="map-pin" />
             </div>
@@ -201,25 +197,32 @@
               Lorem ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry
             </span>
-            <input
-              type="text"
-              id="formName"
-              name="name"
-              class="modal__form__input"
-              placeholder="Имя"
-            />
-            <input
-              type="number"
-              id="formPhone"
-              name="phone"
-              class="modal__form__input"
-              placeholder="Номер телефона"
-            />
-            <div class="modal__form__btns">
-              <button class="modal__form__btn">Отменить</button>
-              <button class="modal__form__btn modal__form__btn_main">
-                Отправить
-              </button>
+            <div class="modal__form__control-wrapper">
+              <input
+                id="formName"
+                type="text"
+                name="name"
+                class="modal__form__input"
+                placeholder="Имя"
+                required
+              />
+              <input
+                id="formPhone"
+                type="text"
+                name="phone"
+                class="modal__form__input"
+                placeholder="Номер телефона"
+                required
+              />
+              <div class="modal__form__btns">
+                <button class="modal__form__btn close">Отменить</button>
+                <button
+                  class="modal__form__btn modal__form__btn_main"
+                  type="submit"
+                >
+                  Отправить
+                </button>
+              </div>
             </div>
           </form>
         </div>
