@@ -1,33 +1,16 @@
+@use "styles/variables";
+@use "styles/modal";
+@use "styles/featured-plants";
+@use "styles/spinner";
+
 @import url("https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700&display=swap&subset=cyrillic-ext");
 @import url("https://fonts.googleapis.com/css?family=PT+Sans:regular&display=swap&subset=cyrillic-ext");
-
-$main-font-family: "Montserrat";
-$second-font-family: "PT Sans";
-$accent-color: #156963;
-$secondary-color: #e0e0e0;
-$text-color: #2c1500;
-
-$minWidth: 320;
-$maxWidth: 1280;
-$maxWidthContainer: 1170;
-$md1: $maxWidthContainer + 12;
-$md2: 991.98;
-$md3: 767.98;
-
-@mixin control-item {
-  font-size: 17px;
-  font-family: $second-font-family;
-  border-radius: 15px;
-  outline: none;
-  border: 1px solid $secondary-color;
-  transition: all 0.3s ease-in-out 0s;
-}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: $main-font-family;
+  font-family: variables.$main-font-family;
 }
 
 .body_overlowHidden {
@@ -35,16 +18,16 @@ $md3: 767.98;
 }
 
 .text {
-  color: $text-color;
+  color: variables.$text-color;
 }
 
 ._container {
-  max-width: $maxWidthContainer + px;
+  max-width: variables.$maxWidthContainer + px;
   margin: 0 auto;
-  @media (max-width: ($md1+px)) {
+  @media (max-width: (variables.$md1+px)) {
     max-width: 970px;
   }
-  @media (max-width: ($md2+px)) {
+  @media (max-width: (variables.$md2+px)) {
     max-width: 750px;
   }
 }
@@ -75,7 +58,7 @@ $md3: 767.98;
   font-weight: 500;
   cursor: pointer;
   &_active {
-    background-color: $accent-color;
+    background-color: variables.$accent-color;
     color: white;
 
     &:hover {
@@ -87,7 +70,7 @@ $md3: 767.98;
     height: 160px;
 
     &_back {
-      color: $accent-color;
+      color: variables.$accent-color;
       width: 270px;
     }
 
@@ -142,7 +125,7 @@ $md3: 767.98;
     }
   }
   &__title {
-    color: $accent-color;
+    color: variables.$accent-color;
     font-size: 68px;
     font-weight: 500;
   }
@@ -166,7 +149,7 @@ $md3: 767.98;
     justify-content: center;
     align-items: center;
 
-    @media (max-width: ($md1+px)) {
+    @media (max-width: (variables.$md1+px)) {
       flex-wrap: wrap;
     }
 
@@ -174,7 +157,7 @@ $md3: 767.98;
   }
   &__column {
     flex: 0 1 25%;
-    @media (max-width: ($md1+px)) {
+    @media (max-width: (variables.$md1+px)) {
       flex: 0 1 45%;
     }
 
@@ -183,7 +166,7 @@ $md3: 767.98;
 }
 
 .advantages-card {
-  border: 2px solid $secondary-color;
+  border: 2px solid variables.$secondary-color;
   height: 100%;
   padding: 22px 16px;
   margin-bottom: 10px;
@@ -193,7 +176,7 @@ $md3: 767.98;
   &__title {
     display: flex;
     align-items: center;
-    color: $accent-color;
+    color: variables.$accent-color;
     font-size: 16px;
     font-weight: 700;
 
@@ -205,232 +188,6 @@ $md3: 767.98;
     margin-top: 16px;
     font-size: 10px;
     line-height: calc(16 / 10) * 100%;
-  }
-}
-
-.featured-plants {
-  margin-top: 80px;
-  margin-bottom: 300px;
-  hr {
-    border: 1px solid $secondary-color;
-  }
-  &__container {
-    display: flex;
-    flex-direction: column;
-  }
-  &__header {
-    display: flex;
-    margin-bottom: 16px;
-    justify-content: space-between;
-  }
-  &__title {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: calc(24 / 20) * 100%;
-  }
-  &__select {
-    font-weight: 500;
-    width: 130px;
-    padding: 8px 12px;
-    border: 2px solid $secondary-color;
-    appearance: none;
-    background: url("./assets/chevron-down.svg") no-repeat;
-    background-position: 95% center;
-
-    outline: 0;
-  }
-  &__cards {
-    margin: 0px -10px;
-    margin-top: 24px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  &__column {
-    flex: 0 1 20%;
-    padding: 0 10px;
-  }
-}
-
-.featured-plant {
-  width: 100%;
-  height: 100%;
-  &__image {
-    width: 217px;
-    height: 217px;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-  }
-  &__description {
-    margin-top: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  &__title {
-  }
-
-  &__price {
-    margin-top: 8px;
-    font-weight: 600;
-  }
-}
-
-.modal {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0, 0, 0, 0.8);
-  top: 0;
-  left: 0;
-
-  overflow-x: hidden;
-  overflow-y: auto;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: all 0.5s ease 0s;
-  &_active {
-    opacity: 1;
-    visibility: visible;
-  }
-  &__area {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-  }
-  &__body {
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 10px;
-  }
-  &__content {
-    position: relative;
-    min-width: 460px;
-    min-height: 200px;
-    background-color: white;
-    color: #000;
-    padding: 40px;
-    border-radius: 10px;
-    opacity: 0;
-    transition: all 0.5s ease 0s;
-    transform: translate(0px, -100%);
-    &_active {
-      opacity: 1;
-      transform: translate(0px, 0px);
-    }
-  }
-  &__close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    &:active {
-      outline: none;
-    }
-  }
-  &__table {
-    width: 700px;
-    padding: 10px;
-    border: 1px solid $secondary-color;
-
-    th,
-    td {
-      height: 50px;
-      padding: 5px 10px;
-      text-align: start;
-    }
-  }
-
-  &__form {
-    width: 430px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    &__icon {
-      width: 90px;
-      height: 90px;
-      background-color: #001e35;
-      border-radius: 50%;
-
-      img {
-        max-width: 100%;
-        transform: translate(50%, 50%);
-      }
-    }
-    &__title {
-      margin-top: 20px;
-      font-size: 20px;
-    }
-    &__text {
-      font-family: $second-font-family;
-      margin-top: 10px;
-      font-size: 17px;
-      letter-spacing: -2.5%;
-    }
-
-    &__control-wrapper {
-      width: 100%;
-      margin-top: 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    &__input {
-      width: 100%;
-      height: 40px;
-      padding: 0px 16px;
-      @include control-item();
-      font-size: 16px;
-      margin-top: 16px;
-
-      &:focus {
-        outline: none;
-        border: 1px solid $accent-color;
-      }
-    }
-    &__btns {
-      margin-top: 16px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
-    &__btn {
-      padding: 9px 63px;
-      height: 40px;
-      background-color: #fff;
-      color: #000;
-      @include control-item();
-      cursor: pointer;
-      box-shadow: 0px 1.5px rgba(0, 0, 0, 0.15);
-
-      &_main {
-        background-color: #e8f2ff;
-        &:hover {
-          background-color: #94b6e0;
-        }
-      }
-    }
   }
 }
 

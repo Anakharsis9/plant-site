@@ -1,0 +1,75 @@
+@use "styles/variables";
+
+.featured-plants {
+  margin-top: 80px;
+  margin-bottom: 300px;
+  hr {
+    border: 1px solid variables.$secondary-color;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__header {
+    display: flex;
+    margin-bottom: 16px;
+    justify-content: space-between;
+  }
+  &__title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: calc(24 / 20) * 100%;
+  }
+  &__select {
+    font-weight: 500;
+    width: 130px;
+    padding: 8px 12px;
+    border: 2px solid variables.$secondary-color;
+    appearance: none;
+    background: url("./assets/chevron-down.svg") no-repeat;
+    background-position: 95% center;
+
+    outline: 0;
+  }
+  &__cards {
+    margin: 0px -10px;
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__column {
+    flex: 0 1 20%;
+    padding: 0 10px;
+  }
+}
+
+.featured-plant {
+  width: 100%;
+  height: 100%;
+  &__image {
+    width: 217px;
+    height: 217px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  &__description {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__title {
+  }
+
+  &__price {
+    margin-top: 8px;
+    font-weight: 600;
+  }
+}
