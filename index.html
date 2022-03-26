@@ -3,37 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./assets/Logo.svg" />
+    <link rel="stylesheet" href="./styles/index.scss" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plant Site</title>
     <script type="module" src="/main.js" defer></script>
   </head>
   <body>
-    <header class="header" id="header">
+    <header class="header">
       <div class="header__content _container">
         <img src="./assets/Logo.svg" alt="Logo" />
-        <button class="header__btn btn btn_active">Форма</button>
+        <button class="btn btn_active">Форма</button>
       </div>
     </header>
     <main class="page">
       <section class="cover">
-        <div class="cover__container">
-          <div class="cover__image">
-            <picture>
-              <source
-                srcset="./assets/img-big-1280.jpg"
-                media="(min-width: 1280px)"
-              />
-              <img src="./assets/img-big-1280.jpg" alt="" />
-            </picture>
-          </div>
+        <div class="cover__image">
+          <img src="./assets/img-big-1280.jpg" alt="Plant-photo" />
+        </div>
 
+        <div class="cover__content-container">
           <div class="cover__content">
+            <div class="spacer"></div>
             <h1 class="cover__title title">Kembang Flower Mantap</h1>
             <div class="cover__text text">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s,
             </div>
+            <div class="spacer"></div>
             <div class="cover_btns">
               <button class="cover_btn btn btn_big btn_big_back btn_secondary">
                 <div class="btn__direction btn__direction_back">
@@ -121,7 +118,7 @@
         <div class="featured-plants__container _container">
           <div class="featured-plants__header">
             <h2 class="featured-plants__title">Featured Plants</h2>
-            <select name="filter" id="filter" class="featured-plants__select">
+            <select class="featured-plants__select">
               <option value="Cheaper First">Cheaper First</option>
             </select>
           </div>
@@ -190,7 +187,7 @@
       <div class="modal__area close"></div>
       <div class="modal__body">
         <div class="modal__content">
-          <svg class="spinner spinner_hidden" viewBox="0 0 50 50">
+          <svg class="spinner spinner_hidden" viewbox="0 0 50 50">
             <circle
               class="path"
               cx="25"
@@ -203,7 +200,7 @@
           <button class="modal__close close">
             <img src="./assets/close.svg" alt="close" />
           </button>
-          <form action="#" class="modal__form" id="form">
+          <form action="#" id="form" class="modal__form">
             <div class="modal__form__icon">
               <img src="./assets/map-pin.svg" alt="map-pin" />
             </div>
@@ -214,16 +211,16 @@
             </span>
             <div class="modal__form__control-wrapper">
               <input
-                type="text"
                 id="formName"
+                type="text"
                 name="name"
                 class="modal__form__input"
                 placeholder="Имя"
                 required
               />
               <input
-                type="text"
                 id="formPhone"
+                type="text"
                 name="phone"
                 class="modal__form__input"
                 placeholder="Номер телефона"

@@ -1,13 +1,15 @@
 import $ from "jquery";
+
 export const formValidate = () => {
   let isValid = 0;
   const formName = $("#formName");
   const formPhone = $("#formPhone");
-  //убираем состояние ошибки
+
+  // убираем состояние ошибки
   $(".modal__form__input").removeClass("invalid");
   $(".error").remove();
 
-  //регулярка для валидации номера
+  // регулярка для валидации номера
   const reg = /^((8|\+7))[\d]{10}$/g;
 
   if (formName.val().length < 3) {

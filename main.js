@@ -1,11 +1,9 @@
-import "./style.scss";
+import $ from "jquery";
 
 import { formValidate } from "./utilities/validate";
 import { createTable } from "./utilities/createTable";
 
-import $ from "jquery";
-
-//открыть модалку
+// открыть модалку
 $(".header__btn").on("click", function () {
   $(".modal").addClass("modal_active");
   $("body").addClass("body_overlowHidden");
@@ -29,7 +27,7 @@ function sendForm(event) {
   const invalidCount = formValidate();
   const API_URL = "https://jsonplaceholder.typicode.com/todos";
 
-  //если не прошли валидацию, не делаем запрос
+  // если не прошли валидацию, не делаем запрос
   if (invalidCount !== 0) return;
   $.ajax({
     url: API_URL,
@@ -39,12 +37,12 @@ function sendForm(event) {
       // перед отправкой включаем спиннер
       $(".spinner").removeClass("spinner_hidden");
     },
-    success: function (data) {
-      //фильтрируем полученные данные
+    success(data) {
+      // фильтрируем полученные данные
       const tableData = data.filter(
         (todo) => todo.userId === 5 && todo.completed === false
       );
-      //заменяем контент модалки таблицей
+      // заменяем контент модалки таблицей
       $(".modal__content").append(createTable(tableData));
     },
     complete() {
@@ -52,7 +50,7 @@ function sendForm(event) {
       $(".spinner").addClass("spinner_hidden");
     },
     error() {
-      //заменяем контент модалки на сообщение об ошибке
+      // заменяем контент модалки на сообщение об ошибке
       $(".modal__content").append(
         "<span class='error'>Произошла ошибка при запросе, обновите страницу и попробуйте еще раз.</span>"
       );
